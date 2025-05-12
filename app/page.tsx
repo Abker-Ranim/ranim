@@ -37,9 +37,9 @@ const techIcons = {
   kubernetes: "/placeholder.svg?height=100&width=100&text=Kubernetes",
   aws: "/placeholder.svg?height=100&width=100&text=AWS",
   git: "/placeholder.svg?height=100&width=100&text=Git",
-  vscode: "/placeholder.svg?height=100&width=100&text=VS+Code",
+  vscode: "/download.png?height=100&width=100&text=VS+Code",
   figma: "/22.png?height=100&width=100&text=Figma",
-  tailwind: "/23png?height=100&width=100&text=Tailwind",
+  tailwind: "/23.png?height=100&width=100&text=Tailwind",
   typescript: "/placeholder.svg?height=100&width=100&text=TypeScript",
 };
 // Project data

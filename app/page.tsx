@@ -194,9 +194,9 @@ export default function Portfolio() {
             >
               Contact
             </a>
-            <a
-              href="/resume.pdf"
-              download
+           <a
+              href="/cv.pdf"
+              download="cv.pdf"
               className="text-purple-600 dark:text-purple-400 hover:text-purple-800 dark:hover:text-purple-300 transition-colors font-medium flex items-center gap-1"
             >
               <svg
@@ -268,7 +268,7 @@ export default function Portfolio() {
                 variant="outline"
                 className="border-purple-600 text-purple-600 hover:bg-purple-100 dark:border-purple-400 dark:text-purple-400 dark:hover:bg-purple-950 transform transition-transform duration-300 hover:scale-105 flex items-center gap-2"
               >
-                <a href="/resume.pdf" download>
+                <a href="/cv.pdf" download>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
@@ -334,7 +334,7 @@ export default function Portfolio() {
                   asChild
                   className="bg-purple-600 hover:bg-purple-700 text-white transform transition-transform duration-300 hover:scale-105 flex items-center gap-2"
                 >
-                  <a href="/resume.pdf" download>
+                  <a href="/cv.pdf" download>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="16"
@@ -621,113 +621,61 @@ export default function Portfolio() {
         </section>
 
         {/* Contact Section */}
-        <section id="contact" className="py-20 relative">
+       <section id="contact" className="py-20 relative">
           <div className="absolute inset-0 bg-gradient-to-b from-purple-50/20 to-white/0 dark:from-purple-900/20 dark:to-gray-900/0 animated-gradient"></div>
           <h2 className="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-white relative z-10">
-            Get In{" "}
-            <span className="text-purple-600 dark:text-purple-400">Touch</span>
+            Get In <span className="text-purple-600 dark:text-purple-400">Touch</span>
           </h2>
           <div className="container mx-auto px-4 relative z-10">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div className="max-w-2xl mx-auto">
               <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-8 rounded-xl shadow-lg border border-purple-100 dark:border-purple-900 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2">
-                <h3 className="text-xl font-bold mb-6 text-gray-900 dark:text-white">
-                  Send Me a Message
-                </h3>
-                <form className="space-y-4">
-                  <div>
-                    <label
-                      htmlFor="name"
-                      className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
-                    >
-                      Name
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-600 dark:focus:ring-purple-400 bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-all duration-300"
-                    />
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="email"
-                      className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
-                    >
-                      Email
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-600 dark:focus:ring-purple-400 bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-all duration-300"
-                    />
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="message"
-                      className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
-                    >
-                      Message
-                    </label>
-                    <textarea
-                      id="message"
-                      rows={4}
-                      className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-600 dark:focus:ring-purple-400 bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-all duration-300"
-                    ></textarea>
-                  </div>
-                  <Button className="w-full bg-purple-600 hover:bg-purple-700 text-white transition-all duration-300 transform hover:scale-105">
-                    Send Message
-                  </Button>
-                </form>
-              </div>
-              <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-8 rounded-xl shadow-lg border border-purple-100 dark:border-purple-900 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2">
-                <h3 className="text-xl font-bold mb-6 text-gray-900 dark:text-white">
-                  Connect With Me
-                </h3>
-                <div className="space-y-6">
-                  <div className="flex items-center space-x-4 transition-transform duration-300 hover:translate-x-2">
-                    <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center">
-                      <Mail className="w-6 h-6 text-purple-600 dark:text-purple-400" />
+                <h3 className="text-xl font-bold mb-8 text-gray-900 dark:text-white text-center">Connect With Me</h3>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <div className="flex flex-col items-center space-y-3 transition-transform duration-300 hover:scale-105">
+                    <div className="w-16 h-16 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center">
+                      <Mail className="w-8 h-8 text-purple-600 dark:text-purple-400" />
                     </div>
-                    <div>
-                      <h4 className="text-sm font-medium text-gray-500 dark:text-gray-400">
-                        Email
-                      </h4>
-                      <p className="text-gray-900 dark:text-white">
-                        ranim.abker@enicar.ucar.tn
-                      </p>
+                    <div className="text-center">
+                      <h4 className="text-sm font-medium text-gray-500 dark:text-gray-400">Email</h4>
+                      <p className="text-gray-900 dark:text-white">contact@example.com</p>
                     </div>
                   </div>
-                  <div className="flex items-center space-x-4 transition-transform duration-300 hover:translate-x-2">
-                    <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center">
-                      <Github className="w-6 h-6 text-purple-600 dark:text-purple-400" />
+                  <div className="flex flex-col items-center space-y-3 transition-transform duration-300 hover:scale-105">
+                    <div className="w-16 h-16 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center">
+                      <Github className="w-8 h-8 text-purple-600 dark:text-purple-400" />
                     </div>
-                    <div>
-                      <h4 className="text-sm font-medium text-gray-500 dark:text-gray-400">
-                        GitHub
-                      </h4>
-                      <Link
-                        href="https://github.com/"
-                        className="text-purple-600 dark:text-purple-400 hover:underline"
-                      >
-                        github.com/Abker-Ranim
+                    <div className="text-center">
+                      <h4 className="text-sm font-medium text-gray-500 dark:text-gray-400">GitHub</h4>
+                      <Link href="https://github.com/" className="text-purple-600 dark:text-purple-400 hover:underline">
+                        github.com/username
                       </Link>
                     </div>
                   </div>
-                  <div className="flex items-center space-x-4 transition-transform duration-300 hover:translate-x-2">
-                    <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center">
-                      <Linkedin className="w-6 h-6 text-purple-600 dark:text-purple-400" />
+                  <div className="flex flex-col items-center space-y-3 transition-transform duration-300 hover:scale-105">
+                    <div className="w-16 h-16 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center">
+                      <Linkedin className="w-8 h-8 text-purple-600 dark:text-purple-400" />
                     </div>
-                    <div>
-                      <h4 className="text-sm font-medium text-gray-500 dark:text-gray-400">
-                        LinkedIn
-                      </h4>
+                    <div className="text-center">
+                      <h4 className="text-sm font-medium text-gray-500 dark:text-gray-400">LinkedIn</h4>
                       <Link
                         href="https://linkedin.com/"
                         className="text-purple-600 dark:text-purple-400 hover:underline"
                       >
-                        linkedin.com/in/ranim-abker
+                        linkedin.com/in/username
                       </Link>
                     </div>
                   </div>
+                </div>
+                <div className="mt-8 flex justify-center">
+                  <Button
+                    asChild
+                    className="bg-purple-600 hover:bg-purple-700 text-white transform transition-transform duration-300 hover:scale-105 flex items-center gap-2"
+                  >
+                    <a href="mailto:contact@example.com">
+                      <Mail className="w-4 h-4 mr-2" />
+                      Send Me an Email
+                    </a>
+                  </Button>
                 </div>
               </div>
             </div>

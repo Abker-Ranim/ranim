@@ -4,8 +4,7 @@ import { useState, useEffect } from "react";
 import {
   Moon,
   Sun,
-  Github,
-  Linkedin,
+   Github, Linkedin,
   Mail,
   ArrowLeft,
   ArrowRight,
@@ -16,7 +15,33 @@ import { useTheme } from "next-themes";
 import Image from "next/image";
 import Link from "next/link";
 import { ProjectModal } from "@/components/ui/project-modal";
-
+// Technology icons data
+const techIcons = {
+  react: "/12.png?height=100&width=100&text=React",
+  angular: "/13.png?height=100&width=100&text=Angular",
+  vue: "/placeholder.svg?height=100&width=100&text=Vue",
+  nextjs: "/placeholder.svg?height=100&width=100&text=Next.js",
+  nodejs: "/14.png?height=100&width=100&text=Node.js",
+  express: "/20.png?height=100&width=100&text=Express",
+  python: "/17.png?height=100&width=100&text=Python",
+  django: "/placeholder.svg?height=100&width=100&text=Django",
+  android : "/19.png?height=100&width=100&text=React+Native",
+  flutter: "/placeholder.svg?height=100&width=100&text=Flutter",
+  swift: "/placeholder.svg?height=100&width=100&text=Swift",
+  kotlin: "/placeholder.svg?height=100&width=100&text=Kotlin",
+  mongodb: "/15.png?height=100&width=100&text=MongoDB",
+  postgres: "/placeholder.svg?height=100&width=100&text=PostgreSQL",
+  mysql: "/16.png?height=100&width=100&text=MySQL",
+  firebase: "/placeholder.svg?height=100&width=100&text=Firebase",
+  docker: "/18.png?height=100&width=100&text=Docker",
+  kubernetes: "/placeholder.svg?height=100&width=100&text=Kubernetes",
+  aws: "/placeholder.svg?height=100&width=100&text=AWS",
+  git: "/placeholder.svg?height=100&width=100&text=Git",
+  vscode: "/22.png?height=100&width=100&text=VS+Code",
+  figma: "/download.png?height=100&width=100&text=Figma",
+  tailwind: "/23.png?height=100&width=100&text=Tailwind",
+  typescript: "/placeholder.svg?height=100&width=100&text=TypeScript",
+};
 // Project data
 const projects = [
   {
@@ -50,22 +75,14 @@ const projects = [
     demoUrl: "202505061422.mp4",
     githubUrl: "https://github.com/Abker-Ranim/projetSpringBoot",
   },
-    {
+  {
     id: 3,
     title: "Parascolaire",
-    description:
-      "Club Management Web       Application.",
+    description: "Club Management Web       Application.",
     longDescription:
       "This weather dashboard provides users with accurate, real-time weather information and forecasts for any location worldwide. Features include hourly and 7-day forecasts, severe weather alerts, radar maps, and customizable widgets. The application uses geolocation to automatically detect the user's location for instant weather updates.",
-    technologies: [
-      "Angular",
-      "TypeScript",
-      "bootstrap",
-     
-    ],
-    images: [
-      "/10.jpg?height=600&width=800&text=Weather+App+Screenshot+1",
-    ],
+    technologies: ["Angular", "TypeScript", "bootstrap"],
+    images: ["/10.jpg?height=600&width=800&text=Weather+App+Screenshot+1"],
     demoUrl: "https://example.com/demo",
     githubUrl: "https://github.com/Abker-Ranim/parascolaire",
   },
@@ -86,7 +103,6 @@ const projects = [
     demoUrl: "https://example.com/demo",
     githubUrl: "https://github.com/username/project",
   },
-
 ];
 
 export default function Portfolio() {
@@ -474,18 +490,15 @@ export default function Portfolio() {
         </section>
 
         {/* Technologies Section */}
+      {/* Technologies Section */}
         <section id="technologies" className="py-20 overflow-hidden">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl font-bold text-center mb-6 text-gray-900 dark:text-white">
-              Explore my{" "}
-              <span className="text-purple-600 dark:text-purple-400">
-                technologies
-              </span>
+              Explore my <span className="text-purple-600 dark:text-purple-400">technologies</span>
             </h2>
             <p className="text-center text-gray-700 dark:text-gray-300 mb-12 max-w-2xl mx-auto">
-              Whether you're looking for frontend development, backend
-              solutions, or full-stack expertise, I've got the skills to bring
-              your project to life.
+              Whether you're looking for frontend development, backend solutions, or full-stack expertise, I've got the
+              skills to bring your project to life.
             </p>
 
             <div className="relative">
@@ -512,76 +525,56 @@ export default function Portfolio() {
                   {
                     name: "Frontend",
                     skills: [
-                      "React",
-                      "Angular",
-                      "Vue.js",
-                      "Next.js",
-                      "HTML/CSS",
-                      "Tailwind CSS",
+                      { name: "React", icon: techIcons.react },
+                      { name: "Angular", icon: techIcons.angular },
+                      { name: "Vue.js", icon: techIcons.vue },
+                      { name: "Next.js", icon: techIcons.nextjs },
                     ],
-                    image:
-                      "/placeholder.svg?height=400&width=400&text=Frontend",
                   },
                   {
                     name: "Backend",
                     skills: [
-                      "Node.js",
-                      "Express",
-                      "Python",
-                      "Django",
-                      "Java",
-                      "Spring Boot",
+                      { name: "Node.js", icon: techIcons.nodejs },
+                      { name: "springBoot", icon: techIcons.express },
+                      { name: "PHP", icon: techIcons.python },
+                      { name: "Django", icon: techIcons.django },
                     ],
-                    image: "/placeholder.svg?height=400&width=400&text=Backend",
                   },
                   {
                     name: "Mobile",
                     skills: [
-                      "React Native",
-                      "Flutter",
-                      "Swift",
-                      "Kotlin",
-                      "iOS",
-                      "Android",
+                      { name: "android studio", icon: techIcons.android  },
+                      { name: "Flutter", icon: techIcons.flutter },
+                      { name: "Swift", icon: techIcons.swift },
+                      { name: "Kotlin", icon: techIcons.kotlin },
                     ],
-                    image: "/placeholder.svg?height=400&width=400&text=Mobile",
                   },
                   {
                     name: "Database",
                     skills: [
-                      "MongoDB",
-                      "PostgreSQL",
-                      "MySQL",
-                      "Firebase",
-                      "Redis",
-                      "Prisma",
+                      { name: "MongoDB", icon: techIcons.mongodb },
+                      { name: "PostgreSQL", icon: techIcons.postgres },
+                      { name: "MySQL", icon: techIcons.mysql },
+                      { name: "Firebase", icon: techIcons.firebase },
                     ],
-                    image:
-                      "/placeholder.svg?height=400&width=400&text=Database",
                   },
                   {
                     name: "DevOps",
                     skills: [
-                      "Docker",
-                      "Kubernetes",
-                      "AWS",
-                      "CI/CD",
-                      "Git",
-                      "GitHub Actions",
+                      { name: "Docker", icon: techIcons.docker },
+                      { name: "Kubernetes", icon: techIcons.kubernetes },
+                      { name: "AWS", icon: techIcons.aws },
+                      { name: "Git", icon: techIcons.git },
                     ],
-                    image: "/placeholder.svg?height=400&width=400&text=DevOps",
                   },
                   {
                     name: "Tools",
                     skills: [
-                      "VS Code",
-                      "Figma",
-                      "Postman",
-                      "Jest",
-                      "Webpack",
-                      "npm/yarn",
+                      { name: "Figma", icon: techIcons.figma },
+                      { name: "VS Code", icon: techIcons.vscode },
+                      { name: "Tailwind", icon: techIcons.tailwind },
+                      { name: "TypeScript", icon: techIcons.typescript },
                     ],
-                    image: "/placeholder.svg?height=400&width=400&text=Tools",
                   },
                 ].map((category, index) => (
                   <div
@@ -589,15 +582,17 @@ export default function Portfolio() {
                     className="min-w-[280px] bg-gray-900/90 rounded-lg overflow-hidden shadow-xl border border-gray-800 snap-start hover:scale-105 transition-transform duration-300"
                   >
                     <div className="h-48 grid grid-cols-2 grid-rows-2 gap-0.5 bg-gray-800 overflow-hidden">
-                      {category.skills.slice(0, 4).map((skill, i) => (
-                        <div
-                          key={i}
-                          className="relative overflow-hidden bg-gray-700"
-                        >
+                      {category.skills.map((skill, i) => (
+                        <div key={i} className="relative overflow-hidden bg-gray-700">
                           <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-purple-500/20 to-purple-800/40">
-                            <span className="text-white font-bold">
-                              {skill.charAt(0)}
-                            </span>
+                            <div className="relative w-full h-full">
+                              <Image
+                                src={skill.icon || "/placeholder.svg"}
+                                alt={skill.name}
+                                fill
+                                className="object-contain p-2"
+                              />
+                            </div>
                           </div>
                         </div>
                       ))}
@@ -616,9 +611,7 @@ export default function Portfolio() {
                 {[0, 1].map((dot) => (
                   <button
                     key={dot}
-                    className={`w-8 h-1 rounded-full ${
-                      dot === 0 ? "bg-red-600" : "bg-gray-600"
-                    }`}
+                    className={`w-8 h-1 rounded-full ${dot === 0 ? "bg-red-600" : "bg-gray-600"}`}
                     onClick={() => scrollToPosition(dot)}
                   ></button>
                 ))}

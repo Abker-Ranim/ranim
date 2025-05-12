@@ -1,41 +1,126 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { Moon, Sun, Github, Linkedin, Mail, ArrowLeft, ArrowRight } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { useTheme } from "next-themes"
-import Image from "next/image"
-import Link from "next/link"
+import { useState, useEffect } from "react";
+import {
+  Moon,
+  Sun,
+  Github,
+  Linkedin,
+  Mail,
+  ArrowLeft,
+  ArrowRight,
+  ExternalLink,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useTheme } from "next-themes";
+import Image from "next/image";
+import Link from "next/link";
+import { ProjectModal } from "@/components/ui/project-modal";
+
+// Project data
+const projects = [
+  {
+    id: 1,
+    title: "NEXUM",
+    description:
+      " A dynamic social networking platform built with passion and purpose! 🚀.",
+    longDescription:
+      " This system aims to provide a seamless experience where you can easily share posts and moments, like, comment, and engage with others, personalize your profile to reflect your unique personality, build global connections, and chat in real-time with friends and new people around the world.",
+    technologies: ["React", "Node.js", "MongoDB", "Express", "Socket.io"],
+    images: [
+      "/1.png?height=600&width=800&text=E-Commerce+Screenshot+1",
+      "/2.png?height=600&width=800&text=E-Commerce+Screenshot+2",
+      "/3.png?height=600&width=800&text=E-Commerce+Screenshot+3",
+    ],
+    demoUrl: "demo.mp4",
+    githubUrl: "https://github.com/Abker-Ranim/social-media-app",
+  },
+  {
+    id: 2,
+    title: "EventiCar",
+    description: "School Event Management Web Application.",
+    longDescription:
+      "A centralized web platform facilitating event planning, real-time task management, and rapid registration of student volunteers, with a rewards system and an interactive dashboard for overall monitoring.",
+    technologies: ["Angular", "Spring Boot", "MySQL", "Java"],
+    images: [
+      "/4.png?height=600&width=800&text=Task+App+Screenshot+1",
+      "/5.png?height=600&width=800&text=Task+App+Screenshot+2",
+      "/6.png?height=600&width=800&text=Task+App+Screenshot+3",
+    ],
+    demoUrl: "202505061422.mp4",
+    githubUrl: "https://github.com/Abker-Ranim/projetSpringBoot",
+  },
+    {
+    id: 3,
+    title: "Parascolaire",
+    description:
+      "Club Management Web       Application.",
+    longDescription:
+      "This weather dashboard provides users with accurate, real-time weather information and forecasts for any location worldwide. Features include hourly and 7-day forecasts, severe weather alerts, radar maps, and customizable widgets. The application uses geolocation to automatically detect the user's location for instant weather updates.",
+    technologies: [
+      "Angular",
+      "TypeScript",
+      "bootstrap",
+     
+    ],
+    images: [
+      "/10.jpg?height=600&width=800&text=Weather+App+Screenshot+1",
+    ],
+    demoUrl: "https://example.com/demo",
+    githubUrl: "https://github.com/Abker-Ranim/parascolaire",
+  },
+  {
+    id: 4,
+    title: "ShowReserv",
+    description:
+      "A mobile-Application.                                                                                                                                                                                                              ",
+
+    longDescription:
+      "Development of a mobile application (Android) allowing users to view and book shows.",
+    technologies: ["Java", "XML", "PHP", "MySQL", "Android Studio"],
+    images: [
+      "/9.png?height=600&width=800&text=Fitness+App+Screenshot+3",
+      "/7.png?height=600&width=800&text=Fitness+App+Screenshot+1",
+      "/8.png?height=600&width=800&text=Fitness+App+Screenshot+2",
+    ],
+    demoUrl: "https://example.com/demo",
+    githubUrl: "https://github.com/username/project",
+  },
+
+];
 
 export default function Portfolio() {
-  const { theme, setTheme } = useTheme()
-  const [mounted, setMounted] = useState(false)
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  const [selectedProject, setSelectedProject] = useState<
+    (typeof projects)[0] | null
+  >(null);
 
   useEffect(() => {
-    setMounted(true)
-  }, [])
+    setMounted(true);
+  }, []);
 
-  if (!mounted) return null
+  if (!mounted) return null;
 
   const scrollCategories = (direction: "left" | "right") => {
-    const container = document.getElementById("tech-categories")
+    const container = document.getElementById("tech-categories");
     if (container) {
-      const scrollAmount = 600
+      const scrollAmount = 600;
       if (direction === "left") {
-        container.scrollBy({ left: -scrollAmount, behavior: "smooth" })
+        container.scrollBy({ left: -scrollAmount, behavior: "smooth" });
       } else {
-        container.scrollBy({ left: scrollAmount, behavior: "smooth" })
+        container.scrollBy({ left: scrollAmount, behavior: "smooth" });
       }
     }
-  }
+  };
 
   const scrollToPosition = (position: number) => {
-    const container = document.getElementById("tech-categories")
+    const container = document.getElementById("tech-categories");
     if (container) {
-      const scrollAmount = position * container.clientWidth
-      container.scrollTo({ left: scrollAmount, behavior: "smooth" })
+      const scrollAmount = position * container.clientWidth;
+      container.scrollTo({ left: scrollAmount, behavior: "smooth" });
     }
-  }
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-white to-purple-50 dark:from-gray-900 dark:to-purple-950 transition-colors duration-500">
@@ -52,7 +137,9 @@ export default function Portfolio() {
                 width: `${Math.random() * 300 + 50}px`,
                 height: `${Math.random() * 300 + 50}px`,
                 filter: "blur(70px)",
-                animation: `float ${Math.random() * 10 + 10}s ease-in-out infinite`,
+                animation: `float ${
+                  Math.random() * 10 + 10
+                }s ease-in-out infinite`,
                 animationDelay: `${Math.random() * 5}s`,
               }}
             />
@@ -63,7 +150,9 @@ export default function Portfolio() {
       {/* Header */}
       <header className="sticky top-0 z-10 backdrop-blur-md bg-white/70 dark:bg-gray-900/70 border-b border-purple-100 dark:border-purple-900">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <h1 className="text-2xl font-bold text-purple-800 dark:text-purple-400">Portfolio</h1>
+          <h1 className="text-2xl font-bold text-purple-800 dark:text-purple-400">
+            Portfolio
+          </h1>
           <nav className="hidden md:flex space-x-6">
             <a
               href="#about"
@@ -121,7 +210,11 @@ export default function Portfolio() {
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
             aria-label="Toggle theme"
           >
-            {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+            {theme === "dark" ? (
+              <Sun className="h-5 w-5" />
+            ) : (
+              <Moon className="h-5 w-5" />
+            )}
           </Button>
         </div>
       </header>
@@ -131,10 +224,14 @@ export default function Portfolio() {
         <section className="flex flex-col md:flex-row items-center justify-between gap-12 min-h-[calc(100vh-200px)] py-16">
           <div className="flex-1 space-y-6">
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white animate-fade-in">
-              <span className="text-purple-600 dark:text-purple-400">Computer Engineering</span> Student
+              <span className="text-purple-600 dark:text-purple-400">
+                Computer Engineering
+              </span>{" "}
+              Student
             </h1>
             <p className="text-xl text-gray-700 dark:text-gray-300 animate-fade-in-delay">
-              Passionate about building innovative solutions and exploring new technologies.
+              Passionate about building innovative solutions and exploring new
+              technologies.
             </p>
             <div className="flex flex-wrap gap-4 animate-fade-in-delay-2">
               <Button
@@ -180,7 +277,13 @@ export default function Portfolio() {
             </div>
           </div>
           <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-purple-600 dark:border-purple-400 shadow-xl transform hover:scale-105 transition-transform duration-500 animate-float">
-            <Image src="/placeholder.svg?height=400&width=400" alt="Profile" fill className="object-cover" priority />
+            <Image
+              src="/ranim.jpg?height=400&width=400"
+              alt="Profile"
+              fill
+              className="object-cover"
+              priority
+            />
           </div>
         </section>
 
@@ -189,21 +292,26 @@ export default function Portfolio() {
           <div className="absolute inset-0 bg-gradient-to-b from-purple-50/20 to-white/0 dark:from-purple-900/20 dark:to-gray-900/0 animated-gradient"></div>
           <div className="max-w-3xl mx-auto relative z-10">
             <h2 className="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-white">
-              About <span className="text-purple-600 dark:text-purple-400">Me</span>
+              About{" "}
+              <span className="text-purple-600 dark:text-purple-400">Me</span>
             </h2>
             <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-8 rounded-xl shadow-lg border border-purple-100 dark:border-purple-900 transform transition-all duration-500 hover:shadow-2xl hover:-translate-y-1">
               <p className="text-lg text-gray-700 dark:text-gray-300 mb-4">
-                I am a Computer Engineering student with a passion for developing innovative solutions to complex
-                problems. My academic journey has equipped me with a strong foundation in both hardware and software
-                aspects of computing.
+                I am a Computer Engineering student with a passion for
+                developing innovative solutions to complex problems. My academic
+                journey has equipped me with a strong foundation in both
+                hardware and software aspects of computing.
               </p>
               <p className="text-lg text-gray-700 dark:text-gray-300 mb-4">
-                I specialize in full-stack development, with expertise in modern frameworks and technologies. My goal is
-                to create efficient, scalable, and user-friendly applications that make a positive impact.
+                I specialize in full-stack development, with expertise in modern
+                frameworks and technologies. My goal is to create efficient,
+                scalable, and user-friendly applications that make a positive
+                impact.
               </p>
               <p className="text-lg text-gray-700 dark:text-gray-300">
-                When I'm not coding, I enjoy exploring new technologies, contributing to open-source projects, and
-                participating in hackathons to challenge myself and expand my skill set.
+                When I'm not coding, I enjoy exploring new technologies,
+                contributing to open-source projects, and participating in
+                hackathons to challenge myself and expand my skill set.
               </p>
               <div className="mt-6 flex justify-center">
                 <Button
@@ -239,10 +347,14 @@ export default function Portfolio() {
         <section id="projects" className="py-20 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-b from-white/0 to-purple-50/20 dark:from-gray-900/0 dark:to-purple-900/20 animated-gradient"></div>
           <h2 className="text-3xl font-bold text-center mb-6 text-gray-900 dark:text-white relative z-10">
-            My <span className="text-purple-600 dark:text-purple-400">Projects</span>
+            My{" "}
+            <span className="text-purple-600 dark:text-purple-400">
+              Projects
+            </span>
           </h2>
           <p className="text-center text-gray-700 dark:text-gray-300 mb-12 max-w-2xl mx-auto relative z-10">
-            Explore my latest work and personal projects that showcase my skills and expertise.
+            Explore my latest work and personal projects that showcase my skills
+            and expertise. Click on any project to see more details.
           </p>
 
           <div className="container mx-auto px-4 relative z-10">
@@ -250,9 +362,10 @@ export default function Portfolio() {
               <div className="absolute right-0 top-1/2 transform -translate-y-1/2 flex gap-2 z-10">
                 <button
                   onClick={() => {
-                    const container = document.getElementById("projects-container")
+                    const container =
+                      document.getElementById("projects-container");
                     if (container) {
-                      container.scrollBy({ left: -350, behavior: "smooth" })
+                      container.scrollBy({ left: -350, behavior: "smooth" });
                     }
                   }}
                   className="w-10 h-10 flex items-center justify-center bg-black/30 hover:bg-black/50 text-white rounded-full backdrop-blur-sm"
@@ -262,9 +375,10 @@ export default function Portfolio() {
                 </button>
                 <button
                   onClick={() => {
-                    const container = document.getElementById("projects-container")
+                    const container =
+                      document.getElementById("projects-container");
                     if (container) {
-                      container.scrollBy({ left: 350, behavior: "smooth" })
+                      container.scrollBy({ left: 350, behavior: "smooth" });
                     }
                   }}
                   className="w-10 h-10 flex items-center justify-center bg-black/30 hover:bg-black/50 text-white rounded-full backdrop-blur-sm"
@@ -278,51 +392,56 @@ export default function Portfolio() {
                 id="projects-container"
                 className="flex gap-6 pb-8 overflow-x-auto scrollbar-hide snap-x snap-mandatory"
               >
-                {[1, 2, 3, 4].map((project) => (
+                {projects.map((project) => (
                   <div
-                    key={project}
-                    className="min-w-[300px] md:min-w-[350px] bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl overflow-hidden shadow-lg border border-purple-100 dark:border-purple-900 transition-all duration-500 hover:scale-105 hover:shadow-2xl section-transition snap-start"
+                    key={project.id}
+                    className="min-w-[300px] md:min-w-[350px] bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl overflow-hidden shadow-lg border border-purple-100 dark:border-purple-900 transition-all duration-500 hover:scale-105 hover:shadow-2xl section-transition snap-start cursor-pointer"
+                    onClick={() => setSelectedProject(project)}
                   >
                     <div className="h-48 bg-purple-200 dark:bg-purple-900 relative overflow-hidden">
                       <Image
-                        src={`/placeholder.svg?height=300&width=500&text=Project+${project}`}
-                        alt={`Project ${project}`}
+                        src={project.images[0] || "/placeholder.svg"}
+                        alt={`${project.title} screenshot`}
                         fill
                         className="object-cover transition-transform duration-700 hover:scale-110"
                       />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end justify-center p-4">
+                        <span className="text-white flex items-center gap-2">
+                          <ExternalLink className="w-4 h-4" /> View Details
+                        </span>
+                      </div>
                     </div>
                     <div className="p-6">
-                      <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">Project {project}</h3>
+                      <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">
+                        {project.title}
+                      </h3>
                       <p className="text-gray-700 dark:text-gray-300 mb-4">
-                        A brief description of this amazing project and the technologies used to build it.
+                        {project.description}
                       </p>
                       <div className="flex flex-wrap gap-2 mb-4">
-                        <span className="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-300 rounded-full text-sm">
-                          React
-                        </span>
-                        <span className="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-300 rounded-full text-sm">
-                          Node.js
-                        </span>
-                        <span className="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-300 rounded-full text-sm">
-                          MongoDB
-                        </span>
+                        {project.technologies.slice(0, 3).map((tech, index) => (
+                          <span
+                            key={index}
+                            className="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-300 rounded-full text-sm"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                        {project.technologies.length > 3 && (
+                          <span className="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-300 rounded-full text-sm">
+                            +{project.technologies.length - 3} more
+                          </span>
+                        )}
                       </div>
-                      <div className="flex justify-between">
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          className="border-purple-600 text-purple-600 hover:bg-purple-100 dark:border-purple-400 dark:text-purple-400 dark:hover:bg-purple-950"
-                        >
-                          View Demo
-                        </Button>
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          className="border-purple-600 text-purple-600 hover:bg-purple-100 dark:border-purple-400 dark:text-purple-400 dark:hover:bg-purple-950"
-                        >
-                          GitHub
-                        </Button>
-                      </div>
+                      <Button
+                        className="w-full bg-purple-600 hover:bg-purple-700 text-white"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setSelectedProject(project);
+                        }}
+                      >
+                        View Project Details
+                      </Button>
                     </div>
                   </div>
                 ))}
@@ -332,12 +451,18 @@ export default function Portfolio() {
                 {[0, 1].map((dot) => (
                   <button
                     key={dot}
-                    className={`w-8 h-1 rounded-full ${dot === 0 ? "bg-red-600" : "bg-gray-600"}`}
+                    className={`w-8 h-1 rounded-full ${
+                      dot === 0 ? "bg-red-600" : "bg-gray-600"
+                    }`}
                     onClick={() => {
-                      const container = document.getElementById("projects-container")
+                      const container =
+                        document.getElementById("projects-container");
                       if (container) {
-                        const scrollAmount = dot * container.clientWidth
-                        container.scrollTo({ left: scrollAmount, behavior: "smooth" })
+                        const scrollAmount = dot * container.clientWidth;
+                        container.scrollTo({
+                          left: scrollAmount,
+                          behavior: "smooth",
+                        });
                       }
                     }}
                     aria-label={`Go to page ${dot + 1}`}
@@ -352,11 +477,15 @@ export default function Portfolio() {
         <section id="technologies" className="py-20 overflow-hidden">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl font-bold text-center mb-6 text-gray-900 dark:text-white">
-              Explore my <span className="text-purple-600 dark:text-purple-400">technologies</span>
+              Explore my{" "}
+              <span className="text-purple-600 dark:text-purple-400">
+                technologies
+              </span>
             </h2>
             <p className="text-center text-gray-700 dark:text-gray-300 mb-12 max-w-2xl mx-auto">
-              Whether you're looking for frontend development, backend solutions, or full-stack expertise, I've got the
-              skills to bring your project to life.
+              Whether you're looking for frontend development, backend
+              solutions, or full-stack expertise, I've got the skills to bring
+              your project to life.
             </p>
 
             <div className="relative">
@@ -382,32 +511,76 @@ export default function Portfolio() {
                 {[
                   {
                     name: "Frontend",
-                    skills: ["React", "Angular", "Vue.js", "Next.js", "HTML/CSS", "Tailwind CSS"],
-                    image: "/placeholder.svg?height=400&width=400&text=Frontend",
+                    skills: [
+                      "React",
+                      "Angular",
+                      "Vue.js",
+                      "Next.js",
+                      "HTML/CSS",
+                      "Tailwind CSS",
+                    ],
+                    image:
+                      "/placeholder.svg?height=400&width=400&text=Frontend",
                   },
                   {
                     name: "Backend",
-                    skills: ["Node.js", "Express", "Python", "Django", "Java", "Spring Boot"],
+                    skills: [
+                      "Node.js",
+                      "Express",
+                      "Python",
+                      "Django",
+                      "Java",
+                      "Spring Boot",
+                    ],
                     image: "/placeholder.svg?height=400&width=400&text=Backend",
                   },
                   {
                     name: "Mobile",
-                    skills: ["React Native", "Flutter", "Swift", "Kotlin", "iOS", "Android"],
+                    skills: [
+                      "React Native",
+                      "Flutter",
+                      "Swift",
+                      "Kotlin",
+                      "iOS",
+                      "Android",
+                    ],
                     image: "/placeholder.svg?height=400&width=400&text=Mobile",
                   },
                   {
                     name: "Database",
-                    skills: ["MongoDB", "PostgreSQL", "MySQL", "Firebase", "Redis", "Prisma"],
-                    image: "/placeholder.svg?height=400&width=400&text=Database",
+                    skills: [
+                      "MongoDB",
+                      "PostgreSQL",
+                      "MySQL",
+                      "Firebase",
+                      "Redis",
+                      "Prisma",
+                    ],
+                    image:
+                      "/placeholder.svg?height=400&width=400&text=Database",
                   },
                   {
                     name: "DevOps",
-                    skills: ["Docker", "Kubernetes", "AWS", "CI/CD", "Git", "GitHub Actions"],
+                    skills: [
+                      "Docker",
+                      "Kubernetes",
+                      "AWS",
+                      "CI/CD",
+                      "Git",
+                      "GitHub Actions",
+                    ],
                     image: "/placeholder.svg?height=400&width=400&text=DevOps",
                   },
                   {
                     name: "Tools",
-                    skills: ["VS Code", "Figma", "Postman", "Jest", "Webpack", "npm/yarn"],
+                    skills: [
+                      "VS Code",
+                      "Figma",
+                      "Postman",
+                      "Jest",
+                      "Webpack",
+                      "npm/yarn",
+                    ],
                     image: "/placeholder.svg?height=400&width=400&text=Tools",
                   },
                 ].map((category, index) => (
@@ -417,9 +590,14 @@ export default function Portfolio() {
                   >
                     <div className="h-48 grid grid-cols-2 grid-rows-2 gap-0.5 bg-gray-800 overflow-hidden">
                       {category.skills.slice(0, 4).map((skill, i) => (
-                        <div key={i} className="relative overflow-hidden bg-gray-700">
+                        <div
+                          key={i}
+                          className="relative overflow-hidden bg-gray-700"
+                        >
                           <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-purple-500/20 to-purple-800/40">
-                            <span className="text-white font-bold">{skill.charAt(0)}</span>
+                            <span className="text-white font-bold">
+                              {skill.charAt(0)}
+                            </span>
                           </div>
                         </div>
                       ))}
@@ -438,7 +616,9 @@ export default function Portfolio() {
                 {[0, 1].map((dot) => (
                   <button
                     key={dot}
-                    className={`w-8 h-1 rounded-full ${dot === 0 ? "bg-red-600" : "bg-gray-600"}`}
+                    className={`w-8 h-1 rounded-full ${
+                      dot === 0 ? "bg-red-600" : "bg-gray-600"
+                    }`}
                     onClick={() => scrollToPosition(dot)}
                   ></button>
                 ))}
@@ -451,15 +631,21 @@ export default function Portfolio() {
         <section id="contact" className="py-20 relative">
           <div className="absolute inset-0 bg-gradient-to-b from-purple-50/20 to-white/0 dark:from-purple-900/20 dark:to-gray-900/0 animated-gradient"></div>
           <h2 className="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-white relative z-10">
-            Get In <span className="text-purple-600 dark:text-purple-400">Touch</span>
+            Get In{" "}
+            <span className="text-purple-600 dark:text-purple-400">Touch</span>
           </h2>
           <div className="container mx-auto px-4 relative z-10">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
               <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-8 rounded-xl shadow-lg border border-purple-100 dark:border-purple-900 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2">
-                <h3 className="text-xl font-bold mb-6 text-gray-900 dark:text-white">Send Me a Message</h3>
+                <h3 className="text-xl font-bold mb-6 text-gray-900 dark:text-white">
+                  Send Me a Message
+                </h3>
                 <form className="space-y-4">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                    <label
+                      htmlFor="name"
+                      className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+                    >
                       Name
                     </label>
                     <input
@@ -469,7 +655,10 @@ export default function Portfolio() {
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+                    >
                       Email
                     </label>
                     <input
@@ -497,15 +686,21 @@ export default function Portfolio() {
                 </form>
               </div>
               <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-8 rounded-xl shadow-lg border border-purple-100 dark:border-purple-900 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2">
-                <h3 className="text-xl font-bold mb-6 text-gray-900 dark:text-white">Connect With Me</h3>
+                <h3 className="text-xl font-bold mb-6 text-gray-900 dark:text-white">
+                  Connect With Me
+                </h3>
                 <div className="space-y-6">
                   <div className="flex items-center space-x-4 transition-transform duration-300 hover:translate-x-2">
                     <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center">
                       <Mail className="w-6 h-6 text-purple-600 dark:text-purple-400" />
                     </div>
                     <div>
-                      <h4 className="text-sm font-medium text-gray-500 dark:text-gray-400">Email</h4>
-                      <p className="text-gray-900 dark:text-white">contact@example.com</p>
+                      <h4 className="text-sm font-medium text-gray-500 dark:text-gray-400">
+                        Email
+                      </h4>
+                      <p className="text-gray-900 dark:text-white">
+                        ranim.abker@enicar.ucar.tn
+                      </p>
                     </div>
                   </div>
                   <div className="flex items-center space-x-4 transition-transform duration-300 hover:translate-x-2">
@@ -513,9 +708,14 @@ export default function Portfolio() {
                       <Github className="w-6 h-6 text-purple-600 dark:text-purple-400" />
                     </div>
                     <div>
-                      <h4 className="text-sm font-medium text-gray-500 dark:text-gray-400">GitHub</h4>
-                      <Link href="https://github.com/" className="text-purple-600 dark:text-purple-400 hover:underline">
-                        github.com/username
+                      <h4 className="text-sm font-medium text-gray-500 dark:text-gray-400">
+                        GitHub
+                      </h4>
+                      <Link
+                        href="https://github.com/"
+                        className="text-purple-600 dark:text-purple-400 hover:underline"
+                      >
+                        github.com/Abker-Ranim
                       </Link>
                     </div>
                   </div>
@@ -524,12 +724,14 @@ export default function Portfolio() {
                       <Linkedin className="w-6 h-6 text-purple-600 dark:text-purple-400" />
                     </div>
                     <div>
-                      <h4 className="text-sm font-medium text-gray-500 dark:text-gray-400">LinkedIn</h4>
+                      <h4 className="text-sm font-medium text-gray-500 dark:text-gray-400">
+                        LinkedIn
+                      </h4>
                       <Link
                         href="https://linkedin.com/"
                         className="text-purple-600 dark:text-purple-400 hover:underline"
                       >
-                        linkedin.com/in/username
+                        linkedin.com/in/ranim-abker
                       </Link>
                     </div>
                   </div>
@@ -549,9 +751,19 @@ export default function Portfolio() {
         </div>
       </footer>
 
+      {/* Project Modal */}
+      {selectedProject && (
+        <ProjectModal
+          project={selectedProject}
+          isOpen={!!selectedProject}
+          onClose={() => setSelectedProject(null)}
+        />
+      )}
+
       <style jsx global>{`
         @keyframes float {
-          0%, 100% {
+          0%,
+          100% {
             transform: translateY(0) scale(1);
           }
           50% {
@@ -567,13 +779,24 @@ export default function Portfolio() {
         }
 
         @keyframes fadeIn {
-          from { opacity: 0; transform: translateY(20px); }
-          to { opacity: 1; transform: translateY(0); }
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
         }
 
         @keyframes float {
-          0%, 100% { transform: translateY(0) rotate(0); }
-          50% { transform: translateY(-20px) rotate(3deg); }
+          0%,
+          100% {
+            transform: translateY(0) rotate(0);
+          }
+          50% {
+            transform: translateY(-20px) rotate(3deg);
+          }
         }
 
         .animate-fade-in {
@@ -593,7 +816,33 @@ export default function Portfolio() {
         .animate-float {
           animation: float 6s ease-in-out infinite;
         }
+
+        .animate-in {
+          animation: animateIn 0.3s ease forwards;
+        }
+
+        @keyframes animateIn {
+          from {
+            opacity: 0;
+            transform: scale(0.95);
+          }
+          to {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+
+        .zoom-in-95 {
+          transform: scale(0.95);
+          animation: zoomIn 0.3s ease forwards;
+        }
+
+        @keyframes zoomIn {
+          to {
+            transform: scale(1);
+          }
+        }
       `}</style>
     </div>
-  )
+  );
 }

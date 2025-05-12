@@ -39,7 +39,7 @@ const techIcons = {
   git: "/placeholder.svg?height=100&width=100&text=Git",
   vscode: "/22.png?height=100&width=100&text=VS+Code",
   figma: "/download.png?height=100&width=100&text=Figma",
-  tailwind: "/23.png?height=100&width=100&text=Tailwind",
+  tailwind: "/placeholder.svg?height=100&width=100&text=Tailwind",
   typescript: "/placeholder.svg?height=100&width=100&text=TypeScript",
 };
 // Project data

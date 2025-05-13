@@ -1,26 +1,10 @@
 # Student portfolio
 
 
-## Overview
-
-This repository will stay in sync with your deployed chats on [v0.dev](https://v0.dev).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.dev](https://v0.dev).
 
 ## Deployment
 
-Your project is live at:
+My project is live at:
 
 **[https://vercel.com/ranims-projects-776cc0a6/v0-student-portfolio](https://vercel.com/ranims-projects-776cc0a6/v0-student-portfolio)**
 
-## Build your app
-
-Continue building your app on:
-
-**[https://v0.dev/chat/projects/jDPQOerZ4Nk](https://v0.dev/chat/projects/jDPQOerZ4Nk)**
-
-## How It Works
-
-1. Create and modify your project using [v0.dev](https://v0.dev)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository

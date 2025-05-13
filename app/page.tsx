@@ -613,8 +613,8 @@ export default function Portfolio() {
                     </div>
                     <div className="text-center">
                       <h4 className="text-sm font-medium text-gray-500 dark:text-gray-400">GitHub</h4>
-                      <Link href="https://github.com/" className="text-purple-600 dark:text-purple-400 hover:underline">
-                        github.com/Abker-Ranim
+                      <Link href="https://github.com/Abker-Ranim" className="text-purple-600 dark:text-purple-400 hover:underline">
+                        Abker-Ranim
                       </Link>
                     </div>
                   </div>
@@ -625,10 +625,10 @@ export default function Portfolio() {
                     <div className="text-center">
                       <h4 className="text-sm font-medium text-gray-500 dark:text-gray-400">LinkedIn</h4>
                       <Link
-                        href="https://linkedin.com/"
+                        href="https://www.linkedin.com/in/abker-ranim-1023002aa/"
                         className="text-purple-600 dark:text-purple-400 hover:underline"
                       >
-                        linkedin.com/in/abker-ranim
+                        abker-ranim
                       </Link>
                     </div>
                   </div>

@@ -26,7 +26,7 @@ const techIcons = {
   python: "/17.png?height=100&width=100&text=Python",
   django: "/placeholder.svg?height=100&width=100&text=Django",
   android : "/19.png?height=100&width=100&text=React+Native",
-  flutter: "/placeholder.svg?height=100&width=100&text=Flutter",
+  flutter: "/33.png?height=100&width=100&text=Flutter",
   swift: "/placeholder.svg?height=100&width=100&text=Swift",
   kotlin: "/placeholder.svg?height=100&width=100&text=Kotlin",
   mongodb: "/15.png?height=100&width=100&text=MongoDB",
@@ -79,8 +79,7 @@ const projects = [
     id: 3,
     title: "Parascolaire",
     description: "Club Management Web       Application.",
-    longDescription:
-      "This weather dashboard provides users with accurate, real-time weather information and forecasts for any location worldwide. Features include hourly and 7-day forecasts, severe weather alerts, radar maps, and customizable widgets. The application uses geolocation to automatically detect the user's location for instant weather updates.",
+    longDescription:"A front-end application for club management. It allows users to add new clubs, view the list of existing clubs, and create or view events associated with each club.",
     technologies: ["Angular", "TypeScript", "bootstrap"],
     images: ["/10.jpg?height=600&width=800&text=Weather+App+Screenshot+1"],
     demoUrl: "https://example.com/demo",
@@ -100,7 +99,7 @@ const projects = [
       "/7.png?height=600&width=800&text=Fitness+App+Screenshot+1",
       "/8.png?height=600&width=800&text=Fitness+App+Screenshot+2",
     ],
-    demoUrl: "https://example.com/demo",
+    demoUrl: "android.mp4",
     githubUrl: "https://github.com/username/project",
   },
 ];
@@ -315,8 +314,7 @@ export default function Portfolio() {
               <p className="text-lg text-gray-700 dark:text-gray-300 mb-4">
                 I am a Computer Engineering student with a passion for
                 developing innovative solutions to complex problems. My academic
-                journey has equipped me with a strong foundation in both
-                hardware and software aspects of computing.
+                journey has equipped me with a strong foundation in software aspects of computing.
               </p>
               <p className="text-lg text-gray-700 dark:text-gray-300 mb-4">
                 I specialize in full-stack development, with expertise in modern
@@ -326,8 +324,7 @@ export default function Portfolio() {
               </p>
               <p className="text-lg text-gray-700 dark:text-gray-300">
                 When I'm not coding, I enjoy exploring new technologies,
-                contributing to open-source projects, and participating in
-                hackathons to challenge myself and expand my skill set.
+                contributing to open-source projects expand my skill set.
               </p>
               <div className="mt-6 flex justify-center">
                 <Button
@@ -463,34 +460,12 @@ export default function Portfolio() {
                 ))}
               </div>
 
-              <div className="flex justify-center gap-1 mt-4">
-                {[0, 1].map((dot) => (
-                  <button
-                    key={dot}
-                    className={`w-8 h-1 rounded-full ${
-                      dot === 0 ? "bg-red-600" : "bg-gray-600"
-                    }`}
-                    onClick={() => {
-                      const container =
-                        document.getElementById("projects-container");
-                      if (container) {
-                        const scrollAmount = dot * container.clientWidth;
-                        container.scrollTo({
-                          left: scrollAmount,
-                          behavior: "smooth",
-                        });
-                      }
-                    }}
-                    aria-label={`Go to page ${dot + 1}`}
-                  ></button>
-                ))}
-              </div>
+             
             </div>
           </div>
         </section>
 
         {/* Technologies Section */}
-      {/* Technologies Section */}
         <section id="technologies" className="py-20 overflow-hidden">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl font-bold text-center mb-6 text-gray-900 dark:text-white">
@@ -607,15 +582,7 @@ export default function Portfolio() {
                 ))}
               </div>
 
-              <div className="flex justify-center gap-1 mt-4">
-                {[0, 1].map((dot) => (
-                  <button
-                    key={dot}
-                    className={`w-8 h-1 rounded-full ${dot === 0 ? "bg-red-600" : "bg-gray-600"}`}
-                    onClick={() => scrollToPosition(dot)}
-                  ></button>
-                ))}
-              </div>
+              
             </div>
           </div>
         </section>
@@ -637,7 +604,7 @@ export default function Portfolio() {
                     </div>
                     <div className="text-center">
                       <h4 className="text-sm font-medium text-gray-500 dark:text-gray-400">Email</h4>
-                      <p className="text-gray-900 dark:text-white">contact@example.com</p>
+                      <p className="text-gray-900 dark:text-white">ranim.abker@enicar.ucar.tn</p>
                     </div>
                   </div>
                   <div className="flex flex-col items-center space-y-3 transition-transform duration-300 hover:scale-105">
@@ -647,7 +614,7 @@ export default function Portfolio() {
                     <div className="text-center">
                       <h4 className="text-sm font-medium text-gray-500 dark:text-gray-400">GitHub</h4>
                       <Link href="https://github.com/" className="text-purple-600 dark:text-purple-400 hover:underline">
-                        github.com/username
+                        github.com/Abker-Ranim
                       </Link>
                     </div>
                   </div>
@@ -661,7 +628,7 @@ export default function Portfolio() {
                         href="https://linkedin.com/"
                         className="text-purple-600 dark:text-purple-400 hover:underline"
                       >
-                        linkedin.com/in/username
+                        linkedin.com/in/abker-ranim
                       </Link>
                     </div>
                   </div>
@@ -671,7 +638,7 @@ export default function Portfolio() {
                     asChild
                     className="bg-purple-600 hover:bg-purple-700 text-white transform transition-transform duration-300 hover:scale-105 flex items-center gap-2"
                   >
-                    <a href="mailto:contact@example.com">
+                    <a href="mailto:ranim.abker@enicar.ucar.tn">
                       <Mail className="w-4 h-4 mr-2" />
                       Send Me an Email
                     </a>

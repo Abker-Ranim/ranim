@@ -4,4 +4,4 @@
 
 My project is live at:
 
-**[https://vercel.com/ranims-projects-776cc0a6/v0-student-portfolio](https://ranim-alpha.vercel.app/)**
+**[https://vercel.com/ranims-projects-776cc0a6/v0-student-portfolio](https://ranim-abker.vercel.app/)**

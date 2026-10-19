@@ -155,9 +155,9 @@ export const crediwise = {
   when: "Feb — Aug 2026",
   pitch: "A secure microservices platform that digitalises the entire credit lifecycle — from the first client contact to the release of funds.",
   problem:
-    "IntechGeeks' existing credit tool, DigiLAF, runs on Microsoft Power Apps: SQL queries capped at 2,000 rows, slowdowns as data grows, a partial audit trail, vendor lock-in and per-user licences. It digitalised the workflow, but could not scale with it.",
+    "A credit file passes through many hands — front office, analysts, risk, committee, branch manager. Financial institutions need that journey to be fast, secure and fully traceable, and to keep up as the number of files grows.",
   solution:
-    "I designed and built CrediWise as a full replacement: ten independent services (nine Quarkus microservices and a Python OCR service), each with its own PostgreSQL database, a React + TypeScript front-end, Keycloak for identity, an AI recommendation engine at every step and end-to-end observability.",
+    "I designed and built CrediWise end to end: ten independent services (nine Quarkus microservices and a Python OCR service), each with its own PostgreSQL database, a React + TypeScript front-end, Keycloak for identity, an AI recommendation engine at every step and end-to-end observability.",
   stages: [
     {
       name: "Request",
@@ -232,7 +232,7 @@ export const crediwise = {
     "Database-per-service, gRPC between services, REST for workflow orchestration",
     "Containerised with Docker; dev and runtime Docker Compose setups",
     "Azure DevOps CI: Maven & npm builds, JUnit gate, versioned Docker images",
-    "Replaces a Power Apps tool: no 2,000-row cap, no per-user licences",
+    "Built on open technologies, designed to scale with the volume of files",
   ],
   stack: ["Quarkus", "React", "TypeScript", "Keycloak", "PostgreSQL", "Python", "FastAPI", "Ollama", "OpenTelemetry", "SigNoz", "Docker", "Nginx"],
 };

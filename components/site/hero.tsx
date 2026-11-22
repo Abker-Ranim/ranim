@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { profile } from "@/lib/content";
 import { gsap, MOTION_OK, SplitText, useGSAP } from "@/lib/gsap";
 import { onIntroDone } from "@/lib/intro";
+import { Avatar } from "./avatar";
 import { Arrow, Magnetic } from "./primitives";
 import { useSmoothScroll } from "./smooth-scroll";
 
@@ -40,8 +41,8 @@ export function Hero() {
 
         const intro = gsap.timeline({ paused: true, defaults: { ease: "expo.out" } });
         intro
-          .from(".hero-arch", { clipPath: "inset(100% 0% 0% 0% round 999px 999px 24px 24px)", duration: 1.6, ease: "expo.inOut" })
-          .from(".hero-arch img", { scale: 1.4, duration: 2.2 }, "<")
+          .from(".hero-arch", { autoAlpha: 0, y: 60, duration: 1.6, ease: "expo.out" })
+          .from(".hero-arch .pose-stack", { scale: 1.12, duration: 2.2 }, "<")
           .from(".ht-hello", { autoAlpha: 0, x: -20, duration: 0.8 }, "<0.3")
           // The first name decodes letter by letter, like a signal resolving.
           .from(chars, { autoAlpha: 0, duration: 0.01, stagger: 0.07 }, "<0.2")
@@ -151,9 +152,7 @@ export function Hero() {
         </div>
 
         <div className="hero-visual">
-          <div className="hero-arch">
-            <img src="/media/portrait.webp?v=3" alt="Portrait of Ranim Abker" width={573} height={891} fetchPriority="high" />
-          </div>
+          <Avatar />
           <div className="hero-badge" aria-hidden="true">
             <svg viewBox="0 0 200 200">
               <defs>
